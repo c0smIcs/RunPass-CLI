@@ -10,14 +10,14 @@ import (
 
 var (
 	passwordLength int    // Длина пароля
-	includeLetters bool   // Включать ли буквы 
+	includeLetters bool   // Включать ли буквы
 	includeNumbers bool   // Включать ли цифры
 	includeSymbols bool   // Включать ли специальные символы
 	outputFile     string // Флаг для сохранения пароля в файл
 )
 
 var GenerateCmd = &cobra.Command{
-	Use: "generate",
+	Use:   "generate",
 	Short: "Генерация случайного пароля",
 	Long: `
 Генерация случайного пароля с настраиваемыми параметрами.
@@ -41,7 +41,7 @@ func processPasswordCreation(cmd *cobra.Command, args []string) {
 		slog.Error("Ошибка: длина пароля должна быть не менее 4 символов")
 		return
 	}
-		
+	
 	// проверка, что хотя бы один тип символа выбран
 	if !includeLetters && !includeNumbers && !includeSymbols {
 		slog.Error("Ошибка: Выберите хотя бы один тип симолов (--letters, --numbers, --symbols)")
