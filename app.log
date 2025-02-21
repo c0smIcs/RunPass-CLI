@@ -13,3 +13,5 @@
 {"time":"2025-02-20T16:00:23.2923603+03:00","level":"INFO","msg":"Сгенерированный пароль","password":"QSgFunbucRKy4dyD"}
 {"time":"2025-02-20T16:00:54.232655+03:00","level":"ERROR","msg":"Ошибка: длина пароля должна быть не менее 4 символов"}
 {"time":"2025-02-20T16:02:14.4477575+03:00","level":"ERROR","msg":"Ошибка: Выберите хотя бы один тип симолов (--letters, --numbers, --symbols)"}
+{"time":"2025-02-20T19:03:48.6221808+03:00","level":"ERROR","msg":"Ошибка выполнения команды","error":"unknown command \"generare\" for \"ranpass\"\n\nDid you mean this?\n\tgenerate\n"}
+{"time":"2025-02-20T19:03:56.8068251+03:00","level":"INFO","msg":"Сгенерированный пароль","password":"quZIefCrcmdUwnA"}
