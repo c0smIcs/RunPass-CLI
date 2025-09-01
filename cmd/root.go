@@ -1,3 +1,8 @@
+/* 
+	Данный файл определяет команду для Cobra "ranpass".
+	В init() добавляет GenerateCmd как подкоманду.
+*/
+
 package cmd
 
 import (
