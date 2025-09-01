@@ -1,3 +1,5 @@
 app.log
+go.mod
+go.sum
 .vscode
 password.txt
