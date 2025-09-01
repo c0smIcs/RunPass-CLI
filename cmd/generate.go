@@ -9,11 +9,11 @@ import (
 )
 
 var (
-	passwordLength int    // Длина пароля
-	includeLetters bool   // Включать ли буквы
-	includeNumbers bool   // Включать ли цифры
-	includeSymbols bool   // Включать ли специальные символы
-	outputFile     string // Флаг для сохранения пароля в файл
+	passwordLength int    // Длина пароля, по умолчанию 12
+	includeLetters bool   // Включать ли буквы, по умолчанию false
+	includeNumbers bool   // Включать ли цифры, по умолчанию false
+	includeSymbols bool   // Включать ли специальные символы, по умолчанию false
+	outputFile     string // Флаг для сохранения пароля в файл, по умолчанию пусто
 )
 
 var GenerateCmd = &cobra.Command{
@@ -41,10 +41,10 @@ func processPasswordCreation(cmd *cobra.Command, args []string) {
 		slog.Error("Ошибка: длина пароля должна быть не менее 4 символов")
 		return
 	}
-	
-	// проверка, что хотя бы один тип символа выбран
+
+	// проверка, что хотя бы один тип выбран
 	if !includeLetters && !includeNumbers && !includeSymbols {
-		slog.Error("Ошибка: Выберите хотя бы один тип симолов (--letters, --numbers, --symbols)")
+		slog.Error("Ошибка: Выберите хотя бы один тип символов (--letters, --numbers, --symbols)")
 		return
 	}
 
@@ -62,9 +62,9 @@ func processPasswordCreation(cmd *cobra.Command, args []string) {
 }
 
 func init() {
-	GenerateCmd.Flags().IntVarP(&passwordLength, "length", "l", 12, "Длина пароля")
+	GenerateCmd.Flags().IntVarP(&passwordLength,  "length",  "l", 12,    "Длина пароля")
 	GenerateCmd.Flags().BoolVarP(&includeLetters, "letters", "a", false, "Включать буквы")
 	GenerateCmd.Flags().BoolVarP(&includeNumbers, "numbers", "n", false, "Включать цифры")
 	GenerateCmd.Flags().BoolVarP(&includeSymbols, "symbols", "s", false, "Включать специальные символы")
-	GenerateCmd.Flags().StringVarP(&outputFile, "output", "o", "", "Сохранить пароль в файл (опционально)")
+	GenerateCmd.Flags().StringVarP(&outputFile,   "output",  "o", "",    "Сохранить пароль в файл (опционально)")
 }
